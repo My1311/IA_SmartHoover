@@ -13,8 +13,6 @@ public class EvaluationRecord implements IEvaluationRecord{
     @Id
     @GeneratedValue
     private Long id;
-
-    private Evaluation[] = Evalu;
     private String commentForRecord;
 
     public void setId(Long id) {

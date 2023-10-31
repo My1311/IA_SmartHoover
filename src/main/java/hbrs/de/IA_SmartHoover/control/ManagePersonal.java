@@ -9,23 +9,25 @@ import java.util.List;
 
 import org.jline.reader.LineReader;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.shell.standard.ShellMethod;
+import org.springframework.stereotype.Controller;
 
+@Controller
 public class ManagePersonal implements IManagePersonal {
 
-    @Lazy
+
     @Autowired
     private LineReader lineReader;
 
     @Override
     @ShellMethod(key = "create", value = "Create a new Salesman")
     public void createSalesMan(ISalesMan record) {
-        SalesMan salesMan = new SalesMan();
+
         String firstName = this.lineReader.readLine("firstName:");
         String lastName = this.lineReader.readLine("lastName:");
-        String jobTitle = this.lineReader.readLine("jobTitle");
-        String subUnit = this.lineReader.readLine("subUnit");
+        Integer id = Integer.valueOf(this.lineReader.readLine("Id"));
+        SalesMan salesMan = new SalesMan(firstName, lastName, id);
+        System.out.println(salesMan.toDocument());
 
     }
 

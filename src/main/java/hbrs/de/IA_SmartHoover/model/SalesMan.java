@@ -1,60 +1,47 @@
 package hbrs.de.IA_SmartHoover.model;
-
+import org.bson.Document;
 
 public class SalesMan implements ISalesMan{
-  
-    String id;
-    String firstName;
-    String lastName;
-    String jobTitle;
-    String subUnit;
-    String supervisor;
 
-    public String getId() {
-        return id;
-    }
+    private String firstname;
+    private String lastname;
+    private Integer id;
 
-    public void setId(String id) {
+    public SalesMan(String firstname, String lastname, Integer id) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public String getJobTitle() {
-        return jobTitle;
+    public Integer getId() {
+        return id;
     }
 
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getSubUnit() {
-        return subUnit;
-    }
-
-    public void setSubUnit(String subUnit) {
-        this.subUnit = subUnit;
-    }
-
-    public String getSupervisor() {
-        return supervisor;
-    }
-
-    public void setSupervisor(String supervisor) {
-        this.supervisor = supervisor;
+    public Document toDocument() {
+        org.bson.Document document = new Document();
+        document.append("firstname" , this.firstname );
+        document.append("lastname" , this.lastname );
+        document.append("id" , this.id);
+        return document;
     }
 }
