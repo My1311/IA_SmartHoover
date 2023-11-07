@@ -19,6 +19,10 @@ public class EvaluationRecord implements IEvaluationRecord{
         this.id = id;
     }
 
+    public void setCommentForRecord(String commentForRecord) {
+        this.commentForRecord = commentForRecord;
+    }
+
     public Long getId() {
         return id;
     }
