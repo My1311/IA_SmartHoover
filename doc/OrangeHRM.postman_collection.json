@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "59eddbe6-9f19-4914-aec5-2e95b7bf95b1",
+		"name": "OrangeHRM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30869433"
+	},
+	"item": [
+		{
+			"name": "PostIssueToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"issueToken\", response.access_token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "client_id",
+							"value": "api_oauth_id",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "oauth_secret",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "demouser",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "*Safb02da42Demo$",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://sepp-hrm.inf.h-brs.de/symfony/web/index.php/oauth/issueToken",
+					"protocol": "https",
+					"host": [
+						"sepp-hrm",
+						"inf",
+						"h-brs",
+						"de"
+					],
+					"path": [
+						"symfony",
+						"web",
+						"index.php",
+						"oauth",
+						"issueToken"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindEmployeeByID",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getEmployeeDetails",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "22d4d53acf29eceade5fb0d1c26c2b95a1ade34e",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sepp-hrm.inf.h-brs.de/symfony/web/index.php/api/v1/employee/:id",
+					"protocol": "https",
+					"host": [
+						"sepp-hrm",
+						"inf",
+						"h-brs",
+						"de"
+					],
+					"path": [
+						"symfony",
+						"web",
+						"index.php",
+						"api",
+						"v1",
+						"employee",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindAll",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getOrganizationInfo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{issueToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sepp-hrm.inf.h-brs.de/symfony/web/index.php/api/v1/organization",
+					"protocol": "https",
+					"host": [
+						"sepp-hrm",
+						"inf",
+						"h-brs",
+						"de"
+					],
+					"path": [
+						"symfony",
+						"web",
+						"index.php",
+						"api",
+						"v1",
+						"organization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getKPIs",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "GetEmployeeBonusSalary",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{issueToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "issueToken",
+			"value": ""
+		},
+		{
+			"key": "JohnSmithEmployeeId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,411 @@
+{
+	"info": {
+		"_postman_id": "47d0f992-f9ca-41d0-ad73-de8378a719c3",
+		"name": "OpenCRX",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30869433"
+	},
+	"item": [
+		{
+			"name": "GetAllAccounts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sepp-crm.inf.h-brs.de/opencrx-rest-CRX/org.opencrx.kernel.product1/provider/CRX/segment/Standard/product/9JMBMVTX2CSMHH2MA4T2TYJFL/:api",
+					"protocol": "https",
+					"host": [
+						"sepp-crm",
+						"inf",
+						"h-brs",
+						"de"
+					],
+					"path": [
+						"opencrx-rest-CRX",
+						"org.opencrx.kernel.product1",
+						"provider",
+						"CRX",
+						"segment",
+						"Standard",
+						"product",
+						"9JMBMVTX2CSMHH2MA4T2TYJFL",
+						":api"
+					],
+					"variable": [
+						{
+							"key": "api",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindTelekomAccountById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://sepp-crm.inf.h-brs.de/opencrx-rest-CRX/org.opencrx.kernel.account1/provider/CRX/segment/Standard/account/97NB4O91UQORTH2MA4T2TYJFL",
+					"protocol": "https",
+					"host": [
+						"sepp-crm",
+						"inf",
+						"h-brs",
+						"de"
+					],
+					"path": [
+						"opencrx-rest-CRX",
+						"org.opencrx.kernel.account1",
+						"provider",
+						"CRX",
+						"segment",
+						"Standard",
+						"account",
+						"97NB4O91UQORTH2MA4T2TYJFL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTelekomAdresse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/org.opencrx.kernel.account1/provider/CRX/segment/Standard/account/97NB4O91UQORTH2MA4T2TYJFL",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"org.opencrx.kernel.account1",
+						"provider",
+						"CRX",
+						"segment",
+						"Standard",
+						"account",
+						"97NB4O91UQORTH2MA4T2TYJFL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindSalesOrderOfGermania1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"<style type=\"text/css\">\r",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}\r",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}\r",
+							"    .tftable tr {background-color:#ffffff;}\r",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}\r",
+							"    .tftable tr:hover {background-color:#e0ffff;}\r",
+							"</style>\r",
+							"\r",
+							"<table class=\"tftable\" border=\"1\">\r",
+							"    <tr>\r",
+							"        <th>Attribute</th>\r",
+							"        <th>Value</th>\r",
+							"    </tr>\r",
+							"    \r",
+							"    <tr>\r",
+							"        <td>Sales Order Href</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.href}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Pricing Rule Href</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.pricingRule}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Total Discount Amount</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.totalDiscountAmount}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Active On</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.activeOn}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Total Base Amount</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.totalBaseAmount}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Owner</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.owner}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Submit Status</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.submitStatus}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Contract Language</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.contractLanguage}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Customer Href</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.customer}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Created By</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.createdBy}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Access Level Update</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.accessLevelUpdate}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Disabled</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.disabled}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Contract Currency</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.contractCurrency}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Identity</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.identity}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Is Gift</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.isGift}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Total Sales Commission</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.totalSalesCommission}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Priority</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.priority}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Owning User Href</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.owningUser}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Payment Terms</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.paymentTerms}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Total Amount Including Tax</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.totalAmountIncludingTax}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Created At</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.createdAt}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Access Level Delete</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.accessLevelDelete}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Pricing State</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.pricingState}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Calc Rule Href</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.calcRule}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Owning Group</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.owningGroup}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Sales Rep Href</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.salesRep}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Total Amount</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.totalAmount}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Freight Terms</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.freightTerms}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Name</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.name}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>No Auto Recalc</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.noAutoRecalc}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Modified At</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.modifiedAt}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Contract State</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.contractState}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Total Tax Amount</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.totalTaxAmount}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Contract Number</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.contractNumber}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Modified By</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.modifiedBy}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Shipping Method</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.shippingMethod}}</td>\r",
+							"    </tr>\r",
+							"    <tr>\r",
+							"        <td>Access Level Browse</td>\r",
+							"        <td>{{response.org.opencrx.kernel.contract1.SalesOrder.accessLevelBrowse}}</td>\r",
+							"    </tr>\r",
+							"</table>\r",
+							"`;\r",
+							"\r",
+							"function constructVisualizerPayload() {\r",
+							"    var jsonObject = xml2Json(pm.response.text());\r",
+							"\r",
+							"    return { response: jsonObject }\r",
+							"}\r",
+							"\r",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/org.opencrx.kernel.contract1/provider/CRX/segment/Standard/salesOrder/9DXSKIH1RCHD5H2MA4T2TYJFL",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"org.opencrx.kernel.contract1",
+						"provider",
+						"CRX",
+						"segment",
+						"Standard",
+						"salesOrder",
+						"9DXSKIH1RCHD5H2MA4T2TYJFL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "FindProductHooverCleanByID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/org.opencrx.kernel.product1/provider/CRX/segment/Standard/product/9JMBMVTX2CSMHH2MA4T2TYJFL",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"org.opencrx.kernel.product1",
+						"provider",
+						"CRX",
+						"segment",
+						"Standard",
+						"product",
+						"9JMBMVTX2CSMHH2MA4T2TYJFL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetGroup",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/org.opencrx.kernel.account1/provider/CRX/segment/Standard/account?position=0&size=50&queryType=org:opencrx:kernel:account1:Group",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"org.opencrx.kernel.account1",
+						"provider",
+						"CRX",
+						"segment",
+						"Standard",
+						"account"
+					],
+					"query": [
+						{
+							"key": "position",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "50"
+						},
+						{
+							"key": "queryType",
+							"value": "org:opencrx:kernel:account1:Group"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetContact",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "guest",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "guest",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "https://sepp-crm.inf.h-brs.de/opencrx-rest-CRX",
+			"type": "string"
+		}
+	]
+}
